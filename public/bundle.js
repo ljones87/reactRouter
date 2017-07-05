@@ -11905,7 +11905,7 @@ module.exports = getIteratorFn;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11945,66 +11945,67 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Main = function (_Component) {
-  _inherits(Main, _Component);
+    _inherits(Main, _Component);
 
-  function Main(props) {
-    _classCallCheck(this, Main);
+    function Main(props) {
+        _classCallCheck(this, Main);
 
-    var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
 
-    _this.state = {
-      selectedAlbum: {}
-    };
-    _this.selectAlbum = _this.selectAlbum.bind(_this);
-    _this.deselectAlbum = _this.deselectAlbum.bind(_this);
-    return _this;
-  }
-
-  _createClass(Main, [{
-    key: 'selectAlbum',
-    value: function selectAlbum(albumId) {
-      var _this2 = this;
-
-      _axios2.default.get('/api/albums/' + albumId).then(function (res) {
-        return res.data;
-      }).then(function (album) {
-        return _this2.setState({
-          selectedAlbum: album
-        });
-      });
+        _this.state = {
+            selectedAlbum: {}
+        };
+        _this.selectAlbum = _this.selectAlbum.bind(_this);
+        _this.deselectAlbum = _this.deselectAlbum.bind(_this);
+        return _this;
     }
-  }, {
-    key: 'deselectAlbum',
-    value: function deselectAlbum() {
-      this.setState({ selectedAlbum: {} });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { id: 'main', className: 'container-fluid' },
-        _react2.default.createElement(
-          'div',
-          { className: 'col-xs-2' },
-          _react2.default.createElement(_Sidebar2.default, { deselectAlbum: this.deselectAlbum })
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.HashRouter,
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'col-xs-10' },
-            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _AllAlbums2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/albums', component: _AllAlbums2.default })
-          )
-        ),
-        _react2.default.createElement(_Player2.default, null)
-      );
-    }
-  }]);
 
-  return Main;
+    _createClass(Main, [{
+        key: 'selectAlbum',
+        value: function selectAlbum(albumId) {
+            var _this2 = this;
+
+            _axios2.default.get('/api/albums/' + albumId).then(function (res) {
+                return res.data;
+            }).then(function (album) {
+                return _this2.setState({
+                    selectedAlbum: album
+                });
+            });
+        }
+    }, {
+        key: 'deselectAlbum',
+        value: function deselectAlbum() {
+            this.setState({ selectedAlbum: {} });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'main', className: 'container-fluid' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-2' },
+                    _react2.default.createElement(_Sidebar2.default, { deselectAlbum: this.deselectAlbum })
+                ),
+                _react2.default.createElement(
+                    _reactRouterDom.HashRouter,
+                    null,
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-10' },
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _AllAlbums2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/albums', component: _AllAlbums2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/single-album', component: _SingleAlbum2.default })
+                    )
+                ),
+                _react2.default.createElement(_Player2.default, null)
+            );
+        }
+    }]);
+
+    return Main;
 }(_react.Component);
 
 exports.default = Main;
@@ -13141,6 +13142,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var fakeAlbum = {
+  name: 'Yellow Submarine',
+  id: 2,
+  imageUrl: 'http://fillmurray.com/300/300',
+  songs: [{
+    id: 4,
+    name: 'London Calling',
+    artists: [{ name: 'Bill' }],
+    genre: 'Punk',
+    audioUrl: 'https://learndotresources.s3.amazonaws.com/workshop/5616dbe5a561920300b10cd7/Dexter_Britain_-_03_-_The_Stars_Are_Out_Interlude.mp3'
+  }]
+};
+
 var SingleAlbum = function (_Component) {
   _inherits(SingleAlbum, _Component);
 
@@ -13154,7 +13168,7 @@ var SingleAlbum = function (_Component) {
     key: 'render',
     value: function render() {
 
-      var album = this.props.album;
+      var album = fakeAlbum;
 
       return _react2.default.createElement(
         'div',
