@@ -11997,7 +11997,7 @@ var Main = function (_Component) {
                         { className: 'col-xs-10' },
                         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _AllAlbums2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/albums', component: _AllAlbums2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/single-album', component: _SingleAlbum2.default })
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/albums/:albumId', component: _SingleAlbum2.default })
                     )
                 ),
                 _react2.default.createElement(_Player2.default, null)

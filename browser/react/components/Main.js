@@ -39,7 +39,7 @@ export default class Main extends Component {
                     <div className="col-xs-10">
                         <Route exact path="/" component={AllAlbums}/>
                         <Route path="/albums" component={AllAlbums}/>
-                        <Route path="/single-album" component={SingleAlbum}/>
+                        <Route path="/albums/:albumId" component={SingleAlbum}/>
                     </div>
                 </Router>
                 <Player />
