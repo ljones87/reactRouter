@@ -3,13 +3,13 @@ import AllAlbums from './AllAlbums';
 import axios from 'axios';
 
 
-export default StatefulAlbums extends Component{
+export default class StatefulAlbums extends Component {
 
     constructor() {
         super();
 
         this.state = {
-        albums: []
+          albums: []
         }
     }
 
@@ -17,7 +17,13 @@ export default StatefulAlbums extends Component{
         axios.get('/api/albums/')
             .then(res => res.data)
             .then(albums => {
-                this.setState({albums})
+                this.setState({albums});
             });
     }
+    render () {
+        return (
+            <AllAlbums albums={this.state.albums} />
+        );
+    }
+
 }
